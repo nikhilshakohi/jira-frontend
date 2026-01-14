@@ -14,3 +14,13 @@ body {
   color: var(--text);
   font-family: system-ui, sans-serif;
 }
+
+.app-body {
+  display: flex;
+}
+
+.app-main {
+  flex: 1;
+  padding: 16px;
+  background: #ffffff;
+}
