@@ -3,8 +3,8 @@ import "./Header.css";
 export default function Header() {
   const toggleTheme = () => {
     const root = document.documentElement;
-    const isDark = root.getAttribute("data-theme") === "dark";
-    root.setAttribute("data-theme", isDark ? "light" : "dark");
+    const currentTheme = root.getAttribute("data-theme") ?? "light";
+    root.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
   };
 
   return (
@@ -15,14 +15,24 @@ export default function Header() {
       </div>
 
       <div className="header-center">
-        <input className="search" placeholder="Search…" />
+        <input className="search" placeholder="Search…" aria-label="Search" />
       </div>
 
       <div className="header-right">
-        <button className="btn">Create</button>
-        <button className="icon">🔔</button>
-        <button className="icon">👤</button>
-        <button className="icon" onClick={toggleTheme}>🌓</button>
+        <button className="btn primary">Create</button>
+        <button className="icon" aria-label="Notifications">
+          🔔
+        </button>
+        <button className="icon" aria-label="Profile">
+          👤
+        </button>
+        <button
+          className="icon"
+          aria-label="Toggle theme"
+          onClick={toggleTheme}
+        >
+          🌓
+        </button>
       </div>
     </header>
   );
