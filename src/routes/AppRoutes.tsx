@@ -16,7 +16,7 @@ export default function AppRoutes() {
           <Route index element={<Board />} />
           <Route path="projects" element={<Projects />} />
           <Route path="issues" element={<Issues />} />
-          <Route path="issues/:id" element={<Issue />} />
+          <Route path="issue/:id" element={<Issue />} />
           <Route path="settings" element={<Settings />} />
         </Route>
 
