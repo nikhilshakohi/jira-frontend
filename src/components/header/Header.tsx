@@ -1,37 +1,55 @@
 import "./Header.css";
 
-export default function Header() {
+type HeaderProps = {
+  onToggleSidebar: () => void;
+};
+
+export default function Header({ onToggleSidebar }: HeaderProps) {
   const toggleTheme = () => {
     const root = document.documentElement;
-    const currentTheme = root.getAttribute("data-theme") ?? "light";
-    root.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+    const current = root.getAttribute("data-theme") ?? "light";
+    root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
   };
 
   return (
     <header className="app-header">
+      {/* LEFT */}
       <div className="header-left">
+        <button
+          className="icon"
+          onClick={onToggleSidebar}
+          aria-label="Toggle sidebar"
+        >
+          ☰
+        </button>
+
         <span className="logo">Jira</span>
-        <span className="project">My Project</span>
-      </div>
 
-      <div className="header-center">
-        <input className="search" placeholder="Search…" aria-label="Search" />
-      </div>
+        <nav className="nav">
+          <button className="nav-item">Projects</button>
+          <button className="nav-item">Issues</button>
+          <button className="nav-item">Teams</button>
+        </nav>
 
-      <div className="header-right">
         <button className="btn primary">Create</button>
+      </div>
+
+      {/* RIGHT */}
+      <div className="header-right">
+        <input className="search" placeholder="Search…" aria-label="Search" />
+
         <button className="icon" aria-label="Notifications">
           🔔
         </button>
-        <button className="icon" aria-label="Profile">
-          👤
-        </button>
         <button
           className="icon"
-          aria-label="Toggle theme"
           onClick={toggleTheme}
+          aria-label="Toggle theme"
         >
           🌓
+        </button>
+        <button className="icon" aria-label="Profile">
+          👤
         </button>
       </div>
     </header>

@@ -1,9 +1,13 @@
 import { NavLink } from "react-router-dom";
 import "./sidebar.css";
 
-export default function Sidebar() {
+type SidebarProps = {
+  sidebarOpen: boolean;
+};
+
+export default function Sidebar({ sidebarOpen }: SidebarProps) {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${sidebarOpen ? "open" : "closed"}`}>
       <nav className="sidebar-nav">
         <NavLink to="/" className="sidebar-item">
           Dashboard

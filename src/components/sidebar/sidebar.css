@@ -2,17 +2,30 @@
   width: 220px;
   background-color: var(--sidebar-bg, #f4f5f7);
   border-right: 1px solid #dfe1e6;
-  height: calc(100vh - 56px);
-  /* header height */
+  height: calc(100vh - 56px); /* header height */
+  transition: width 0.2s ease;
+  overflow: hidden;
 }
 
+/* 🔽 COLLAPSE STATES */
+.sidebar.closed {
+  width: 0;
+}
+
+.sidebar.open {
+  width: 220px;
+}
+
+/* NAV */
 .sidebar-nav {
   display: flex;
   flex-direction: column;
   padding: 12px;
   gap: 6px;
+  white-space: nowrap;
 }
 
+/* ITEMS */
 .sidebar-item {
   padding: 8px 12px;
   border-radius: 6px;

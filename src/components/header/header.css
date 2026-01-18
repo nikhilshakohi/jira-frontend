@@ -2,7 +2,6 @@
   height: 56px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0 16px;
   border-bottom: 1px solid #e5e7eb;
   background: var(--bg);
@@ -15,24 +14,35 @@
   gap: 12px;
 }
 
+.header-left {
+  flex: 1;
+}
+
 .logo {
   font-weight: 700;
+  margin-right: 8px;
 }
 
-.project {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.header-center {
-  flex: 1;
+.nav {
   display: flex;
-  justify-content: center;
+  gap: 8px;
+}
+
+.nav-item {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  padding: 6px 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.nav-item:hover {
+  background: #f1f5f9;
 }
 
 .search {
-  width: 100%;
-  max-width: 420px;
+  width: 220px;
   padding: 6px 10px;
   border-radius: 6px;
   border: 1px solid #d1d5db;

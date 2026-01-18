@@ -1,0 +1,41 @@
+src/
+ ├── app/
+ │   ├── App.tsx
+ │   ├── AppRoutes.tsx
+ │   ├── AppLayout.tsx
+ │
+ ├── features/
+ │   ├── auth/
+ │   │   ├── pages/Login.tsx
+ │   │   ├── pages/Register.tsx
+ │   │   ├── auth.api.ts
+ │   │   └── auth.types.ts
+ │   │
+ │   ├── projects/
+ │   │   ├── pages/ProjectList.tsx
+ │   │   ├── pages/ProjectBoard.tsx
+ │   │   ├── project.api.ts
+ │   │   └── project.types.ts
+ │   │
+ │   ├── issues/
+ │   │   ├── pages/IssueDetails.tsx
+ │   │   ├── IssueModal.tsx
+ │   │   ├── issue.api.ts
+ │   │   └── issue.types.ts
+ │
+ ├── components/
+ │   ├── header/
+ │   ├── sidebar/
+ │   ├── common/
+ │
+ ├── services/
+ │   ├── apiClient.ts   // axios + JWT
+ │
+ ├── hooks/
+ │   ├── useAuth.ts
+ │
+ ├── utils/
+ │   ├── token.ts
+ │
+ └── theme/
+     └── muiTheme.ts
