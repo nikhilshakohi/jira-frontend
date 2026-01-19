@@ -1,4 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  DragDropContext,
+  Droppable,
+  Draggable,
+} from "@hello-pangea/dnd";
+import type { DropResult } from "@hello-pangea/dnd";
 
 type Issue = {
   id: string;
@@ -11,7 +18,7 @@ type Issue = {
   assignee?: string;
 };
 
-const issues: Issue[] = [
+const initialIssues: Issue[] = [
   {
     id: "1",
     key: "JIRA-101",
@@ -49,37 +56,78 @@ const columns = [
 ] as const;
 
 export default function Board() {
-  return (
-    <div style={{ display: "flex", gap: 16 }}>
-      {columns.map((column) => (
-        <div key={column.id} style={{ width: 280 }}>
-          <h4>{column.name}</h4>
+  const [issues, setIssues] = useState(initialIssues);
 
-          {issues
-            .filter((issue) => issue.status === column.id)
-            .map((issue) => (
-              <Link
-                key={issue.id}
-                to={`/issue/${issue.id}`}
-                style={{ textDecoration: "none", color: "inherit" }}
+  const onDragEnd = (result: DropResult) => {
+    if (!result.destination) return;
+  
+    setIssues((prev) =>
+      prev.map((issue) =>
+        issue.id === result.draggableId
+          ? { ...issue, status: result.destination!.droppableId as Issue["status"] }
+          : issue
+      )
+    );
+  };  
+
+  return (
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div style={{ display: "flex", gap: 16 }}>
+        {columns.map((column) => (
+          <Droppable droppableId={column.id} key={column.id}>
+            {(provided) => (
+              <div
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+                style={{ width: 280 }}
               >
-                <div
-                  style={{
-                    background: "#fff",
-                    borderRadius: 6,
-                    padding: 10,
-                    marginBottom: 8,
-                    boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-                    cursor: "pointer",
-                  }}
-                >
-                  <small>{issue.key}</small>
-                  <div>{issue.summary}</div>
-                </div>
-              </Link>
-            ))}
-        </div>
-      ))}
-    </div>
+                <h4>{column.name}</h4>
+
+                {issues
+                  .filter((issue) => issue.status === column.id)
+                  .map((issue, index) => (
+                    <Draggable
+                      draggableId={issue.id}
+                      index={index}
+                      key={issue.id}
+                    >
+                      {(provided) => (
+                        <Link
+                          to={`/issue/${issue.id}`}
+                          style={{
+                            textDecoration: "none",
+                            color: "inherit",
+                          }}
+                        >
+                          <div
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            style={{
+                              background: "#fff",
+                              borderRadius: 6,
+                              padding: 10,
+                              marginBottom: 8,
+                              boxShadow:
+                                "0 1px 3px rgba(0,0,0,0.12)",
+                              cursor: "grab",
+                              ...provided.draggableProps.style,
+                            }}
+                          >
+                            <small>{issue.key}</small>
+                            <div>{issue.summary}</div>
+                          </div>
+                        </Link>
+                      )}
+                    </Draggable>
+                  ))}
+
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        ))}
+      </div>
+    </DragDropContext>
   );
 }
