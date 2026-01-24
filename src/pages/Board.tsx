@@ -56,7 +56,6 @@ const columns = [
   { id: "done", name: "Done" },
 ] as const;
 
-/* ================= COMPONENT ================= */
 export default function Board() {
   const [issues, setIssues] = useState<Issue[]>(initialIssues);
   const [viewMode, setViewMode] = useState<ViewMode>("board");
