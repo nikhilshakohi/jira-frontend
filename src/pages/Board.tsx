@@ -51,7 +51,7 @@ const initialIssues: Issue[] = [
 ];
 
 const columns = [
-  { id: "todo", name: "To Do" },
+  { id: "todo", name: "To - Do" },
   { id: "inprogress", name: "In Progress" },
   { id: "done", name: "Done" },
 ] as const;
