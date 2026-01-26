@@ -60,7 +60,6 @@ export default function Board() {
   const [issues, setIssues] = useState<Issue[]>(initialIssues);
   const [viewMode, setViewMode] = useState<ViewMode>("board");
 
-  /* ---- LIST VIEW STATE ---- */
   const [sortKey, setSortKey] = useState<SortKey>("key");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
 
