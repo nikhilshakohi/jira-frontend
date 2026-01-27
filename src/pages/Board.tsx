@@ -78,7 +78,6 @@ export default function Board() {
     );
   };
 
-  /* ---- FILTER + SORT PIPELINE ---- */
   const visibleIssues = useMemo(() => {
     let data = [...issues];
 
