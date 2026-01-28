@@ -92,7 +92,6 @@ export default function Board() {
 
   return (
     <div>
-      {/* ===== HEADER / TOGGLER ===== */}
       <div
         style={{
           display: "flex",
