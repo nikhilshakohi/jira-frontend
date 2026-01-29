@@ -114,7 +114,6 @@ export default function Board() {
           </button>
         </div>
 
-        {/* ===== LIST CONTROLS ===== */}
         {viewMode === "list" && (
           <div style={{ display: "flex", gap: 8 }}>
             <select
