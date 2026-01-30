@@ -138,7 +138,6 @@ export default function Board() {
         )}
       </div>
 
-      {/* ===== BOARD VIEW ===== */}
       {viewMode === "board" ? (
         <DragDropContext onDragEnd={onDragEnd}>
           <div style={{ display: "flex", gap: 16 }}>
