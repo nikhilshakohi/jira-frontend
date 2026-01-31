@@ -193,7 +193,6 @@ export default function Board() {
           </div>
         </DragDropContext>
       ) : (
-        /* ===== LIST / TABLE VIEW ===== */
         <table width="100%" cellPadding={10}>
           <thead>
             <tr style={{ textAlign: "left", borderBottom: "1px solid #ddd" }}>
