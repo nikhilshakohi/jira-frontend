@@ -20,7 +20,6 @@ export default function Issues() {
 
   return (
     <div className="px-6 py-4 bg-slate-100 min-h-screen">
-      {/* Top Bar */}
       <div className="flex items-center justify-between mb-3">
         <h1 className="text-lg font-semibold text-slate-800">Issues</h1>
 
@@ -30,7 +29,6 @@ export default function Issues() {
         />
       </div>
 
-      {/* Table */}
       <div className="bg-white border rounded-md">
         <table className="w-full text-sm">
           <thead className="bg-slate-50 border-b">
