@@ -4,7 +4,6 @@ export default function NotFound() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4">
       <div className="max-w-md text-center">
-        {/* Illustration placeholder */}
         <div className="mx-auto mb-6 h-32 w-32 rounded-full bg-slate-100" />
 
         <h1 className="text-lg font-semibold text-slate-800">Page not found</h1>
