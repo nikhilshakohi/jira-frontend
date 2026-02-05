@@ -10,7 +10,6 @@ interface Project {
   createdAt: string;
 }
 
-/* ================= MOCK DATA ================= */
 const projects: Project[] = [
   {
     id: "1",
