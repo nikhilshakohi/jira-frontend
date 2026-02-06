@@ -2,7 +2,7 @@
   width: 220px;
   background-color: var(--sidebar-bg, #f4f5f7);
   border-right: 1px solid #dfe1e6;
-  height: calc(100vh - 56px); /* header height */
+  height: calc(100vh - 56px);
   transition: width 0.2s ease;
   overflow: hidden;
 }
