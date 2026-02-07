@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import type { DropResult } from "@hello-pangea/dnd";
 
-/* ================= TYPES ================= */
 type Issue = {
   id: string;
   key: string;
