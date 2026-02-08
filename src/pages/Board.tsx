@@ -18,7 +18,6 @@ type StatusFilter = Issue["status"] | "all";
 type ViewMode = "board" | "list";
 type SortKey = "key" | "priority" | "status";
 
-/* ================= DATA ================= */
 const initialIssues: Issue[] = [
   {
     id: "1",
