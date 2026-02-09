@@ -7,7 +7,6 @@
   overflow: hidden;
 }
 
-/* 🔽 COLLAPSE STATES */
 .sidebar.closed {
   width: 0;
 }
