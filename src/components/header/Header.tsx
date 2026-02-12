@@ -13,7 +13,6 @@ export default function Header({ onToggleSidebar }: HeaderProps) {
 
   return (
     <header className="app-header">
-      {/* LEFT */}
       <div className="header-left">
         <button
           className="icon"
