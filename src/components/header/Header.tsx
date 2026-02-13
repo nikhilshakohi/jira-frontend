@@ -33,7 +33,6 @@ export default function Header({ onToggleSidebar }: HeaderProps) {
         <button className="btn primary">Create</button>
       </div>
 
-      {/* RIGHT */}
       <div className="header-right">
         <input className="search" placeholder="Search…" aria-label="Search" />
 
